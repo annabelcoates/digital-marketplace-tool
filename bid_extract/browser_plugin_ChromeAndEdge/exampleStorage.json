@@ -1,0 +1,28 @@
+[
+    {
+        "title": "Example title",
+        "url": "https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/15413",
+        "body": {
+            "bidType": "Example Type",
+            "client": "Example client",
+            "contractLength": "3 months",
+            "location": "Example location",
+            "postedDate": "01/01/2021",
+            "closingDate": "02/01/2021",
+            "estimatedStartDate": "03/01/2021"
+        }
+    },
+    {
+        "title": "Example title 2",
+        "url": "https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/15413",
+        "body": {
+            "bidType": "Example Type 2",
+            "client": "Example client 2",
+            "contractLength": "4 months",
+            "location": "Example location 2",
+            "postedDate": "01/01/2021",
+            "closingDate": "02/01/2021",
+            "estimatedStartDate": "03/01/2021"
+        }
+    }
+]

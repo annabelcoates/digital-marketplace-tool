@@ -1,0 +1,16 @@
+{
+    "name": "DOS Scraper",
+    "description": "Extension for scraping the DOS website and generting an .xlsx file.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": "crown.png",
+        "default_popup": "popup.html"
+       },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs",
+        "downloads"
+        ]
+}

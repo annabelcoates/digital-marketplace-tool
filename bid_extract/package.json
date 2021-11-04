@@ -1,0 +1,16 @@
+{
+  "name": "browser_plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "file-saver": "^2.0.5",
+    "xlsx": "^0.17.0"
+  }
+}

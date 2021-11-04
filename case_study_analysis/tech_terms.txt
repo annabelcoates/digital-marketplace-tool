@@ -1,0 +1,1 @@
+aws,azure,bitbucket,jira,redis,postgres,api,alpha,beta,elastic,git,terraform,kubernetes,jenkins,vagrant,epic,story,ticket,bug,architect,service,mongodb,newrelic,node,angular,react,splunk,agile,deployment,test
