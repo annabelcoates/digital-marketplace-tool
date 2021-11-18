@@ -68,9 +68,16 @@ document.getElementById("add").addEventListener('click', () => {
         var contractLength = document.evaluate("//dt[contains(text(), 'Expected contract length')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         var location = document.evaluate("//dt[contains(text(), 'Location')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         var postedDate = document.evaluate("//dt[contains(text(), 'Published')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        var closingDate = document.evaluate("//dt[contains(text(), 'Closing date for applications')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        var closingDate = document.evaluate("//dt[contains(text(), 'Closing date for applications')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue? ;
         var estimatedStartDate = document.evaluate("//dt[contains(text(), 'Expected contract length')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         var value = document.evaluate("//dt[contains(text(), 'Budget range')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+        var newContractLength= contractLength? contractLength: {nodeValue:""};
+        var newLocation= location? location: {nodeValue:""};
+        var newEstimatedStartDate= estimatedStartDate? estimatedStartDate: {nodeValue:""};
+        var newClosingDate= closingDate? closingDate: {nodeValue:""};
+        var newValue= value? value: {nodeValue:""};
+        var newPostedDate= postedDate? postedDate: {nodeValue:""};
 
         if (value == null) {
             var value = document.evaluate("//dt[contains(text(), 'Maximum day rate')]//..//dd/child::text()", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -78,12 +85,12 @@ document.getElementById("add").addEventListener('click', () => {
 
         var returnJson = {"bidType" : "DOS Stage 1",
                           "client" : client.nodeValue.replace('\n','').trim(),
-                          "contractLength" : contractLength.nodeValue.replace('\n','').trim(), //Standardise data
-                          "location" : location.nodeValue.replace('\n','').trim(),
-                          "postedDate" : postedDate.nodeValue.replace('\n','').trim(),
-                          "closingDate" : closingDate.nodeValue.replace('\n','').trim(),
-                          "estimatedStartDate" : estimatedStartDate.nodeValue.replace('\n','').trim(),
-                          "value" : value.nodeValue.replace('\n','').trim()
+                          "contractLength" : newContractLength.nodeValue.replace('\n','').trim(), //Standardise data
+                          "location" : newLocation.nodeValue.replace('\n','').trim(),
+                          "postedDate" : newPostedDate.nodeValue.replace('\n','').trim(),
+                          "closingDate" : newClosingDate.nodeValue.replace('\n','').trim(),
+                          "estimatedStartDate" : newEstimatedStartDate.nodeValue.replace('\n','').trim(),
+                          "value" : newValue.nodeValue.replace('\n','').trim()
                           }
         return returnJson;
     }
@@ -144,7 +151,7 @@ document.getElementById("export").addEventListener('click', () => {
             opportunityArray.push(JSON.parse(localStorage.getItem(keyName)))
         }
     }
-
+    console.log('opportunityArray: ',opportunityArray)
     // Create Excel file blob
     const fileBlob = createExcelBlob(opportunityArray)
 
